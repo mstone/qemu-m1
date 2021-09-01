@@ -1,0 +1,79 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1630440368,
+        "narHash": "sha256-JKdVH5hDpbCy8ifQeZ7TnS735ZKBGWRhP0KcoRZOWW4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d2196ee6353de80a27d160244dd5defd2227587f",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "qemuSrc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1630000079,
+        "narHash": "sha256-cQAJjaG2np2t55dm76FVsUZSAXaKkdNUQe2fZnzzGi8=",
+        "ref": "m1",
+        "rev": "b62bcd7d1b7af9f5eb4f0b2b4e02ffbce0053244",
+        "revCount": 89513,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mstone/qemu-m1"
+      },
+      "original": {
+        "ref": "m1",
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mstone/qemu-m1"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "qemuSrc": "qemuSrc",
+        "sigtoolSrc": "sigtoolSrc",
+        "utils": "utils"
+      }
+    },
+    "sigtoolSrc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1621612147,
+        "narHash": "sha256-3+u6Z/SfbdPg6Dptvyh52VkKb+HDZFMw65OIrV7fSkE=",
+        "owner": "thefloweringash",
+        "repo": "sigtool",
+        "rev": "db1f32bb7de43cee8801880fbb88be8764fe75bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thefloweringash",
+        "repo": "sigtool",
+        "rev": "db1f32bb7de43cee8801880fbb88be8764fe75bb",
+        "type": "github"
+      }
+    },
+    "utils": {
+      "locked": {
+        "lastModified": 1629481132,
+        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "997f7efcb746a9c140ce1f13c72263189225f482",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
