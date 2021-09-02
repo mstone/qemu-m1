@@ -27,38 +27,13 @@
           postInstall = null;
         }));
 
-        qemuUnsigned = (prev.qemu.overrideAttrs (old: rec {
+        qemu = (prev.qemu.overrideAttrs (old: rec {
           inherit version;
           src = qemuSrc;
           patches = [(builtins.head (builtins.tail old.patches))];
           buildInputs = old.buildInputs ++ [ libtasn1 ];
-          nativeBuildInputs = [ (python39.withPackages (ps: with ps; [sphinx sphinx_rtd_theme])) ] ++ (lib.drop 2 old.nativeBuildInputs);
+          nativeBuildInputs = [ sigtool (python39.withPackages (ps: with ps; [sphinx sphinx_rtd_theme])) ] ++ (lib.drop 2 old.nativeBuildInputs);
         })).override { hostCpuOnly = true; };
-
-        qemu = stdenv.mkDerivation {
-          pname = name;
-          inherit version;
-          buildInputs = [ qemuUnsigned sigtool darwin.cctools ];
-          phases = [ "installPhase" ];
-          installPhase = ''
-            set -euo pipefail
-            mkdir -p $out/bin
-            ln -sf ${qemuUnsigned}/share $out/share
-            ln -sf ${qemuUnsigned}/include $out/include
-            f="$out/bin/qemu-system-${stdenv.targetPlatform.qemuArch}";
-            i="${qemuUnsigned}/bin/qemu-system-${stdenv.targetPlatform.qemuArch}-unsigned";
-            cp $i $f;
-            local sigsize;
-            local -a allocate_archs;
-            while read -r arch sigsize; do
-              sigsize=$(( ((sigsize + 15) / 16) * 16 + 1024 ));
-              allocate_archs+=(-a "$arch" "$sigsize");
-            done < <(${sigtool}/bin/sigtool -f "$f" size);
-            ${darwin.cctools}/bin/${darwin.cctools.targetPrefix}codesign_allocate -i "$f" "''${allocate_archs[@]}" -o "$f.tmp";
-            ${sigtool}/bin/sigtool -i qemu-system-aarch64 -f "$f.tmp" -e ${./accel/hvf/entitlements.plist} inject;
-            mv "$f.tmp" "$f";
-          '';
-        };
 
         defaultPackage = qemu;
       };
