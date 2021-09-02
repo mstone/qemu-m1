@@ -2667,7 +2667,7 @@ foreach target : target_dirs
                link_args: link_args,
                gui_app: exe['gui'])
 
-    if false
+    if targetos == 'darwin'
       icon = 'pc-bios/qemu.rsrc'
       build_input = [emulator, files(icon)]
       install_input = [
