@@ -1,6 +1,8 @@
 #!/bin/sh -e
 #
 # Helper script for the build process to apply entitlements
+set -x
+set -euo pipefail
 
 in_place=:
 if [ "$1" = --install ]; then

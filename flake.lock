@@ -17,17 +17,17 @@
     "qemuSrc": {
       "flake": false,
       "locked": {
-        "lastModified": 1630000079,
-        "narHash": "sha256-cQAJjaG2np2t55dm76FVsUZSAXaKkdNUQe2fZnzzGi8=",
-        "ref": "m1",
-        "rev": "b62bcd7d1b7af9f5eb4f0b2b4e02ffbce0053244",
-        "revCount": 89513,
+        "lastModified": 1630602703,
+        "narHash": "sha256-u2WGqZ49pWAJVr4xGR240JjaQt/AhdShwP2bhDLyKeI=",
+        "ref": "m1-test",
+        "rev": "033339e61ab3955e7f2b4e806abdf1201f4d09bb",
+        "revCount": 89516,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/mstone/qemu-m1"
       },
       "original": {
-        "ref": "m1",
+        "ref": "m1-test",
         "submodules": true,
         "type": "git",
         "url": "https://github.com/mstone/qemu-m1"
@@ -37,24 +37,30 @@
       "inputs": {
         "nixpkgs": "nixpkgs",
         "qemuSrc": "qemuSrc",
-        "sigtoolSrc": "sigtoolSrc",
+        "sigtool": "sigtool",
         "utils": "utils"
       }
     },
-    "sigtoolSrc": {
-      "flake": false,
+    "sigtool": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": [
+          "utils"
+        ]
+      },
       "locked": {
-        "lastModified": 1621612147,
-        "narHash": "sha256-3+u6Z/SfbdPg6Dptvyh52VkKb+HDZFMw65OIrV7fSkE=",
-        "owner": "thefloweringash",
+        "lastModified": 1630772493,
+        "narHash": "sha256-BIah/Kshph8GwYg8fGTaCTzLZlQZ1xLuV9oMOin4Yx0=",
+        "owner": "mstone",
         "repo": "sigtool",
-        "rev": "db1f32bb7de43cee8801880fbb88be8764fe75bb",
+        "rev": "9888891984a9cd4b795cc6f391356f57de3e6a63",
         "type": "github"
       },
       "original": {
-        "owner": "thefloweringash",
+        "owner": "mstone",
         "repo": "sigtool",
-        "rev": "db1f32bb7de43cee8801880fbb88be8764fe75bb",
         "type": "github"
       }
     },
