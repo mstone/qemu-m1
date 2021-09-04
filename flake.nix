@@ -31,6 +31,8 @@
           patches = [(builtins.head (builtins.tail old.patches))];
           buildInputs = old.buildInputs ++ [ libtasn1 ];
           nativeBuildInputs = [ sigtool.defaultPackage.${prev.system} (python39.withPackages (ps: with ps; [sphinx sphinx_rtd_theme])) ] ++ (lib.drop 2 old.nativeBuildInputs);
+          darwinDontCodeSign = true;
+          dontStrip = true;
         })).override { hostCpuOnly = true; };
         defaultPackage = qemu;
       };

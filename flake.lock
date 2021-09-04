@@ -17,11 +17,11 @@
     "qemuSrc": {
       "flake": false,
       "locked": {
-        "lastModified": 1630602703,
-        "narHash": "sha256-u2WGqZ49pWAJVr4xGR240JjaQt/AhdShwP2bhDLyKeI=",
+        "lastModified": 1630773130,
+        "narHash": "sha256-3cUpqAiu5ykvKdRgrQ4IJ6yvA+uT4SAROxGoyZA6iiM=",
         "ref": "m1-test",
-        "rev": "033339e61ab3955e7f2b4e806abdf1201f4d09bb",
-        "revCount": 89516,
+        "rev": "f1d4687f950635361697ad65286ffa0f20616e4c",
+        "revCount": 89517,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/mstone/qemu-m1"
