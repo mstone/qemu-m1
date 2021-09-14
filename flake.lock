@@ -14,29 +14,9 @@
         "type": "indirect"
       }
     },
-    "qemuSrc": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1630773130,
-        "narHash": "sha256-3cUpqAiu5ykvKdRgrQ4IJ6yvA+uT4SAROxGoyZA6iiM=",
-        "ref": "m1-test",
-        "rev": "f1d4687f950635361697ad65286ffa0f20616e4c",
-        "revCount": 89517,
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/mstone/qemu-m1"
-      },
-      "original": {
-        "ref": "m1-test",
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/mstone/qemu-m1"
-      }
-    },
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
-        "qemuSrc": "qemuSrc",
         "sigtool": "sigtool",
         "utils": "utils"
       }
